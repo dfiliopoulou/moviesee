@@ -41,15 +41,6 @@ function Navigation() {
               <span className="icon-bar bottom"></span>
             </button>
           </div>
-          {/* <div
-            class="burger-menu"
-            className={isActive ? "active" : ""}
-            onClick={handleClick}
-          >
-            <span className="icon-bar top"></span>
-            <span className="icon-bar middle"></span>
-            <span className="icon-bar bottom"></span>
-          </div> */}
         </div>
       </div>
     </nav>

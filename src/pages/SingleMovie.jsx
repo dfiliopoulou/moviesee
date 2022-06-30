@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navigation from "./../components/Navigation";
+import { useNavigate} from 'react-router-dom';
+
 
 function SingleMovie() {
   const [movie, setMovie] = useState();
-
+  const navigate = useNavigate();
   // get the movie id from url parameters, (https://reactrouter.com/docs/en/v6/hooks/use-params)
   const { id } = useParams();
 
@@ -15,7 +17,7 @@ function SingleMovie() {
       );
       const data = await api.json(); // format the fetched data from the api to json
 
-      console.log(data);
+      // console.log(data);
       // add data to the state
       setMovie(data);
     };
@@ -36,8 +38,8 @@ function SingleMovie() {
       <Navigation />
       <div className="single_movie__container">
         <div className="flex-row">
-          <a href="/" className="btn btn-dark btn-lg">
-            <svg
+        <button onClick={() => navigate(-1)} className="btn btn-dark btn-lg">            
+        <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
               height="16"
@@ -49,10 +51,9 @@ function SingleMovie() {
                 fill-rule="evenodd"
                 d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
               />
-            </svg>
-            Back
-          </a>
+            </svg>Go back</button>
         </div>
+
         <div className="flex-row">
           <div className="left">
             <img
